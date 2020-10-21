@@ -1,11 +1,37 @@
 <!-- Label to display any error messages -->
-<label class="error-message">{{ errMessage }}</label>
+<!--<label class="error-message">{{ errMessage }}</label> -->
 
 <!-- Expansion panel to add new notes -->
 
+<mat-expansion-panel hideToggle class="extension">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      title
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-
-
-
-
+<div>
+  <mat-form-field>
+    <!--<mat-label>Input</mat-label>-->
+   <input [(ngModel)]="note.title" matInput placeholder="titel" />
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+    <!--<mat-label>Input</mat-label>-->
+   <textarea [(ngModel)]="note.text"  matInput placeholder="take a note"></textarea>
+  </mat-form-field>
+</div>
+<div>
+  <mat-card-actions>
+  <button (click)="takeNote()" mat-button>submit</button>
+</mat-card-actions>
+  </div>
+</mat-expansion-panel>
 <!-- Load and display the collection of notes from server as Material Cards with card title set to note title and card content set to note text  -->
+<div>
+  <mat-card *ngFor="let note of notes">
+<mat-card-title>{{note.title}}</mat-card-title>
+<mat-card-content>{{note.text}}</mat-card-content>
+</mat-card>
+</div>
