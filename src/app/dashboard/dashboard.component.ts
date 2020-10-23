@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit{
       this.notes=data;
     },error=>
       {
-        console.log(error);
+        error);
       }
 
     );

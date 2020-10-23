@@ -14,10 +14,10 @@
    </mat-form-field>
    </div>
     <!--<div *ngIf="password.invalid && password.touched">{{error-message}}</div>-->
-
+    <p class='error-message' >{{submitMessage}}</p>
 
   <div>
-    <input type="submit" [disabled]="loginFrom.invalid" value="login"/>
+    <input type="Submit" [disabled]="loginFrom.invalid" value="login"/>
     </div>
    </form>
 

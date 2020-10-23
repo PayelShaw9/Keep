@@ -11,7 +11,6 @@ export class RouterService {
 
   routeToDashboard() {
     this.router.navigate(['dashboard']);
-    console.log('hi')
   }
 
   routeToLogin() {

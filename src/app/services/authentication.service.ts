@@ -31,7 +31,7 @@ export class AuthenticationService {
     {},
     {
     headers:new HttpHeaders({
-    Authorization: 'Bearer ${token}'
+    Authorization: `Bearer ${token}`
     })
     }
     ).pipe(map((response)=> response['isAuthenticated']

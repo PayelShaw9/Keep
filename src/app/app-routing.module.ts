@@ -9,8 +9,8 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 const routes:Routes=[
   {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent ,canActivate :[CanActivateRouteGuard ]},
-  {path:'',redirectTo:'login', pathMatch:'full'},
+  {path:'dashboard',component:DashboardComponent,canActivate :[CanActivateRouteGuard ]},
+  {path:'',redirectTo:'dashboard', pathMatch:'full'},
 
 ];
 

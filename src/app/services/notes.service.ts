@@ -16,7 +16,7 @@ export class NotesService {
     this.authToken=this.authservice.getBearerToken();
     return this.httpClient.get<Note[]>('http://localhost:3000/api/v1/notes',{
       headers:new HttpHeaders({
-        Authorization: 'Bearer ${this.authToken}'
+        Authorization: `Bearer ${this.authToken}`
       }),
     });
 

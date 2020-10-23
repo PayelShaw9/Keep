@@ -10,6 +10,7 @@ import { RouterService } from '../services/router.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  submitMessage:string;
 
   constructor(private auth:AuthenticationService,private routerService:RouterService) { }
 
@@ -24,6 +25,19 @@ export class LoginComponent implements OnInit {
     {
       return this.loginFrom.get('username');
     }
+    set username(uname)
+    {
+      this.loginFrom.controls.username = uname;
+    }
+    get password():AbstractControl
+    {
+      return this.loginFrom.get('password');
+    }
+    set password(pass)
+    {
+      this.loginFrom.controls.password = pass;
+    }
+
 
     loginSubmit() {
 
@@ -31,12 +45,13 @@ export class LoginComponent implements OnInit {
         data=>
         {
         this.auth.setBearerToken(data.token);
-          console.log(data);
+         // console.log(data);
           this.routerService.routeToDashboard();
         },
         err=>
         {
-          console.log(err);
+         this.submitMessage=err;
+         // return this.submitMessage;
         }
 
       );
