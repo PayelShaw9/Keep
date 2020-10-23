@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
    username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
     });
+    //uname:string='';
+    //pass:String='';
 
     get username():AbstractControl
     {
@@ -27,14 +29,18 @@ export class LoginComponent implements OnInit {
     }
     set username(uname)
     {
+      uname.setValue('');
+
       this.loginFrom.controls.username = uname;
     }
     get password():AbstractControl
     {
+
       return this.loginFrom.get('password');
     }
     set password(pass)
     {
+pass.setValue('');
       this.loginFrom.controls.password = pass;
     }
 
