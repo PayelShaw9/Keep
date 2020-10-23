@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class RouterService {
 
-  constructor(private router:Router,private routerService:RouterService) { }
+  constructor(private router:Router) { }
 
   routeToDashboard() {
     this.router.navigate(['dashboard']);
