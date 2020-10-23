@@ -8,12 +8,16 @@ import {NotesService} from '../services/notes.service';
 })
 export class DashboardComponent implements OnInit{
 
+  note:Note = new Note();
+  notes:Note[] = [];
+
+  errMessage= "";
+
     constructor(private noteService:NotesService){
 
   }
 
-  note:Note=new Note();
-  notes:Note[]=[];
+
 
   ngOnInit()
   {
@@ -23,19 +27,31 @@ export class DashboardComponent implements OnInit{
       this.notes=data;
     },error=>
       {
-        error);
+        this.errMessage=error;
       }
 
-    );
+    )
   }
 
 
   takeNote()
   {
+  if(!this.note.title ) {
+    this .errMessage = "Title and Text both are required fields";
+   // return errorMessage;
+   }
+   else if(!this.note.text ) {
+    this .errMessage = "Title and Text both are required fields";
+   // return errorMessage;
+   }
+   else
+   {
+
    this.noteService.addNote(this.note).subscribe(
-      data=>{  this.notes.concat(data)},
+      data=>{  this.notes.push(data)},
       error=>{console.log(error)}
     );
   }
+}
 
 }
